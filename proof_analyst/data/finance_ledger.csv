@@ -1,0 +1,4 @@
+region,month,audited_revenue_usd,source
+North America,2026-01,1280000,finance_erp_ledger
+Europe,2026-01,980000,finance_erp_ledger
+Asia,2026-01,910000,finance_erp_ledger

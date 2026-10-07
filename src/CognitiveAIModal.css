@@ -1,0 +1,1177 @@
+/* ==========================================================================
+   Knightfall AI Modal — Ultra-Premium Liquid Mesh Dark Theme UI
+   ========================================================================== */
+
+.cognitive-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(2, 6, 18, 0.86);
+  backdrop-filter: blur(32px) saturate(210%);
+  -webkit-backdrop-filter: blur(32px) saturate(210%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.cognitive-modal-card {
+  width: 100%;
+  max-width: 960px;
+  max-height: 90vh;
+  background: linear-gradient(145deg, rgba(7, 12, 24, 0.96), rgba(3, 7, 18, 0.98));
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  border-radius: 28px;
+  box-shadow: 
+    0 40px 140px rgba(0, 0, 0, 0.95), 
+    0 0 60px rgba(14, 165, 233, 0.16),
+    0 0 1px 1px rgba(168, 85, 247, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  box-sizing: border-box;
+  color: #f8fafc;
+  position: relative;
+  isolation: isolate;
+}
+
+/* Glass Specular Liquid Iridescent Glow Sheen */
+.cognitive-modal-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 5%;
+  right: 5%;
+  height: 1.5px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    rgba(56, 189, 248, 0.85) 25%, 
+    rgba(168, 85, 247, 0.75) 50%, 
+    rgba(16, 185, 129, 0.75) 75%, 
+    transparent
+  );
+  animation: liquidSheen 9s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ==========================================================================
+   Liquid Mesh Animated Ambient Aura Background
+   ========================================================================== */
+
+.liquid-mesh-aura {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+  border-radius: 28px;
+}
+
+.mesh-gradient-orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(85px);
+  pointer-events: none;
+  opacity: 0.6;
+  will-change: transform;
+}
+
+.orb-primary {
+  width: 520px;
+  height: 520px;
+  top: -180px;
+  left: -120px;
+  background: radial-gradient(circle, rgba(14, 165, 233, 0.45) 0%, rgba(2, 132, 199, 0.18) 45%, transparent 70%);
+  animation: meshFloat1 18s ease-in-out infinite alternate;
+}
+
+.orb-secondary {
+  width: 500px;
+  height: 500px;
+  top: 25%;
+  right: -140px;
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.38) 0%, rgba(99, 102, 241, 0.18) 50%, transparent 70%);
+  animation: meshFloat2 22s ease-in-out infinite alternate;
+}
+
+.orb-tertiary {
+  width: 480px;
+  height: 480px;
+  bottom: -140px;
+  left: 25%;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.32) 0%, rgba(14, 165, 233, 0.14) 50%, transparent 70%);
+  animation: meshFloat3 20s ease-in-out infinite alternate;
+}
+
+.liquid-mesh-grid-pattern {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 26px 26px;
+  opacity: 0.35;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.liquid-mesh-vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 35%, rgba(3, 7, 18, 0.7) 100%);
+  pointer-events: none;
+}
+
+/* ==========================================================================
+   Modal Header & Badges
+   ========================================================================== */
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 28px 14px 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(12px);
+}
+
+.header-badge-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.agent-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.18), rgba(99, 102, 241, 0.14));
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.22);
+}
+
+.live-dot-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.72);
+  font-weight: 500;
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25), 0 0 12px #10b981;
+}
+
+.dataset-indicator-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(16, 185, 129, 0.12);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 9999px;
+}
+
+.close-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.75);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  transform: rotate(90deg);
+}
+
+/* ==========================================================================
+   Modal Subhead & Quick Actions
+   ========================================================================== */
+
+.modal-title-row {
+  padding: 14px 28px 10px 28px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.modal-title-left {
+  flex: 1;
+}
+
+.modal-title {
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  background: linear-gradient(135deg, #ffffff 40%, #bae6fd 75%, #c4b5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 4px 0;
+}
+
+.modal-desc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.45;
+  margin: 0;
+}
+
+.modal-desc strong {
+  color: #38bdf8;
+}
+
+.modal-title-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.quick-action-btn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+  padding: 6px 13px;
+  font-size: 11.5px;
+  font-weight: 500;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.quick-action-btn:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(56, 189, 248, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(56, 189, 248, 0.2);
+}
+
+.trap-action-btn {
+  background: rgba(245, 158, 11, 0.14);
+  border-color: rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+}
+
+.trap-action-btn:hover {
+  background: rgba(245, 158, 11, 0.24);
+  border-color: #f59e0b;
+  box-shadow: 0 4px 16px rgba(245, 158, 11, 0.3);
+}
+
+/* ==========================================================================
+   Query Input Box (Liquid Glass Formulation)
+   ========================================================================== */
+
+.query-input-box {
+  padding: 6px 28px 14px 28px;
+  position: relative;
+  z-index: 2;
+}
+
+.input-row {
+  display: flex;
+  gap: 10px;
+}
+
+.input-wrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
+  position: absolute;
+  left: 14px;
+  color: #38bdf8;
+  pointer-events: none;
+  filter: drop-shadow(0 0 6px rgba(56, 189, 248, 0.5));
+}
+
+.clear-input-btn {
+  position: absolute;
+  right: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.65);
+  transition: all 0.15s ease;
+}
+
+.clear-input-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+}
+
+.analyst-text-input {
+  width: 100%;
+  border: 1px solid rgba(56, 189, 248, 0.24);
+  border-radius: 14px;
+  padding: 12px 38px 12px 42px;
+  font-size: 13.5px;
+  font-family: inherit;
+  outline: none;
+  background: rgba(3, 7, 18, 0.65);
+  color: #ffffff;
+  backdrop-filter: blur(20px);
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6), 0 4px 20px rgba(0, 0, 0, 0.4);
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+}
+
+.analyst-text-input::placeholder {
+  color: rgba(255, 255, 255, 0.42);
+}
+
+.analyst-text-input:focus {
+  border-color: #38bdf8;
+  background: rgba(3, 7, 18, 0.85);
+  box-shadow: 
+    0 0 0 3px rgba(56, 189, 248, 0.2), 
+    0 0 30px rgba(56, 189, 248, 0.25),
+    inset 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.execute-btn {
+  background: linear-gradient(135deg, #0284c7, #2563eb 50%, #7c3aed);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  border-radius: 12px;
+  padding: 0 22px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  white-space: nowrap;
+  box-shadow: 0 4px 20px rgba(2, 132, 199, 0.4), 0 0 25px rgba(124, 58, 237, 0.25);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.execute-btn:hover {
+  background: linear-gradient(135deg, #0ea5e9, #3b82f6 50%, #8b5cf6);
+  transform: translateY(-1.5px);
+  box-shadow: 0 8px 30px rgba(56, 189, 248, 0.6), 0 0 40px rgba(139, 92, 246, 0.4);
+}
+
+.execute-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-spinner {
+  width: 12px;
+  height: 12px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+/* ==========================================================================
+   Quick Suggestion Chips
+   ========================================================================== */
+
+.quick-suggestions-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 10px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+  scrollbar-width: thin;
+}
+
+.suggestions-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 600;
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.suggestion-chip {
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(56, 189, 248, 0.2);
+  color: #e2e8f0;
+  border-radius: 9999px;
+  padding: 4px 11px;
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  backdrop-filter: blur(12px);
+  transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.suggestion-chip:hover {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.22), rgba(99, 102, 241, 0.2));
+  border-color: #38bdf8;
+  color: #38bdf8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(56, 189, 248, 0.25);
+}
+
+/* ==========================================================================
+   Navigation Tabs
+   ========================================================================== */
+
+.modal-tabs {
+  display: flex;
+  padding: 0 28px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 20px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  background: rgba(255, 255, 255, 0.015);
+  position: relative;
+  z-index: 2;
+}
+
+.modal-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.tab-btn {
+  padding: 11px 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.6);
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  position: relative;
+  transition: color 0.18s ease;
+  white-space: nowrap;
+}
+
+.tab-btn:hover {
+  color: #ffffff;
+}
+
+.tab-btn.active {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 2.5px;
+  background: linear-gradient(90deg, #38bdf8, #818cf8);
+  border-radius: 2px;
+  box-shadow: 0 0 12px #38bdf8;
+}
+
+/* ==========================================================================
+   Tab Content Panes
+   ========================================================================== */
+
+.tab-pane {
+  padding: 20px 28px;
+  overflow-y: auto;
+  max-height: calc(90vh - 270px);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   Verdict Banners (Liquid Mesh Proof Cards)
+   ========================================================================== */
+
+.verdict-banner {
+  border-radius: 20px;
+  padding: 20px 24px;
+  display: flex;
+  gap: 18px;
+  align-items: flex-start;
+  box-sizing: border-box;
+  backdrop-filter: blur(16px);
+  position: relative;
+  overflow: hidden;
+}
+
+.verdict-banner.proven {
+  background: linear-gradient(135deg, rgba(6, 78, 59, 0.35), rgba(4, 120, 87, 0.2) 50%, rgba(15, 23, 42, 0.65));
+  border: 1px solid rgba(16, 185, 129, 0.4);
+  box-shadow: 0 12px 40px rgba(16, 185, 129, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.verdict-banner.refusal {
+  background: linear-gradient(135deg, rgba(120, 53, 15, 0.35), rgba(180, 83, 9, 0.2) 50%, rgba(15, 23, 42, 0.65));
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  box-shadow: 0 12px 40px rgba(245, 158, 11, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.verdict-icon {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.verdict-content {
+  flex: 1;
+}
+
+.verdict-status-line {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 7px;
+  flex-wrap: wrap;
+}
+
+.verdict-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 9px;
+  border-radius: 6px;
+}
+
+.verdict-banner.proven .verdict-label {
+  background: #10b981;
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.6);
+}
+
+.verdict-banner.refusal .verdict-label {
+  background: #f59e0b;
+  color: #ffffff;
+  box-shadow: 0 0 14px rgba(245, 158, 11, 0.6);
+}
+
+.verdict-subtext {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.verdict-answer-text {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 7px;
+}
+
+.verdict-reason {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.82);
+  margin: 0;
+}
+
+/* ==========================================================================
+   Deterministic Execution Trace & Traps Audit
+   ========================================================================== */
+
+.verification-steps-box {
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 16px;
+  padding: 16px 20px;
+  backdrop-filter: blur(12px);
+}
+
+.steps-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  margin-top: 8px;
+}
+
+.step-pill {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.45;
+}
+
+.step-num {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.45);
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.audit-section {
+  background: rgba(15, 23, 42, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 16px;
+  padding: 16px 20px;
+  backdrop-filter: blur(12px);
+}
+
+.audit-title {
+  font-size: 11.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.55);
+  margin: 0 0 10px 0;
+}
+
+.traps-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.trap-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.45;
+}
+
+.trap-indicator {
+  color: #10b981;
+  font-weight: 700;
+  font-size: 13px;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Receipt Card (Cryptographic SHA-256 Mesh Badge)
+   ========================================================================== */
+
+.receipt-card {
+  background: rgba(4, 9, 22, 0.65);
+  border: 1px solid rgba(56, 189, 248, 0.22);
+  border-radius: 16px;
+  padding: 18px 22px;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.receipt-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.receipt-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  color: #ffffff;
+}
+
+.receipt-badge {
+  font-size: 10.5px;
+  font-weight: 600;
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  padding: 3px 9px;
+  border-radius: 9999px;
+  letter-spacing: 0.02em;
+}
+
+.receipt-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.meta-label {
+  display: block;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.45);
+  margin-bottom: 3px;
+}
+
+.meta-code {
+  font-family: monospace;
+  font-size: 11.5px;
+  color: #93c5fd;
+}
+
+.meta-val {
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.92);
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Question Explorer Tab
+   ========================================================================== */
+
+.questions-pane {
+  gap: 16px;
+}
+
+.category-filter-row {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 4px;
+  scrollbar-width: thin;
+}
+
+.cat-pill {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 9999px;
+  padding: 6px 14px;
+  font-size: 12px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+  transition: all 0.18s ease;
+}
+
+.cat-pill:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+}
+
+.cat-pill.active {
+  background: linear-gradient(135deg, #0284c7, #38bdf8);
+  color: #ffffff;
+  font-weight: 600;
+  border-color: #38bdf8;
+  box-shadow: 0 0 16px rgba(56, 189, 248, 0.45);
+}
+
+.questions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.question-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 18px;
+  padding: 16px 18px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  backdrop-filter: blur(12px);
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.question-card:hover {
+  background: linear-gradient(145deg, rgba(15, 23, 42, 0.85), rgba(30, 41, 59, 0.8));
+  border-color: rgba(56, 189, 248, 0.5);
+  transform: translateY(-2.5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(56, 189, 248, 0.2);
+}
+
+.question-card.selected {
+  background: rgba(56, 189, 248, 0.1);
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 1px #38bdf8, 0 8px 24px rgba(56, 189, 248, 0.25);
+}
+
+.q-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.q-category-tag {
+  font-size: 10.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.q-highlight-badge {
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.28);
+  padding: 2px 7px;
+  border-radius: 6px;
+}
+
+.q-card-text {
+  font-size: 13.5px;
+  font-weight: 500;
+  color: #ffffff;
+  line-height: 1.45;
+}
+
+.q-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.5);
+  font-weight: 500;
+  padding-top: 6px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.question-card:hover .q-card-footer {
+  color: #38bdf8;
+}
+
+/* ==========================================================================
+   Data Table Styles
+   ========================================================================== */
+
+.data-pane {
+  gap: 16px;
+}
+
+.table-heading {
+  font-size: 13px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+}
+
+.table-scroll {
+  overflow-x: auto;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 14px;
+  background: rgba(3, 7, 18, 0.55);
+  backdrop-filter: blur(12px);
+}
+
+.demo-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  text-align: left;
+}
+
+.demo-table th {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 11px 14px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.demo-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.demo-table tr.dupe-row {
+  background: rgba(234, 88, 12, 0.15);
+}
+
+.dupe-tag {
+  font-size: 9.5px;
+  font-weight: 700;
+  background: #ea580c;
+  color: #ffffff;
+  padding: 1px 5px;
+  border-radius: 4px;
+  margin-left: 6px;
+}
+
+.null-tag {
+  font-size: 10px;
+  font-weight: 700;
+  color: #f87171;
+  background: rgba(239, 68, 68, 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.currency-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.currency-badge.USD {
+  background: rgba(56, 189, 248, 0.16);
+  color: #38bdf8;
+}
+
+.currency-badge.EUR {
+  background: rgba(245, 158, 11, 0.16);
+  color: #fbbf24;
+}
+
+.status-badge {
+  font-size: 10.5px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: capitalize;
+}
+
+.status-badge.completed {
+  background: rgba(16, 185, 129, 0.16);
+  color: #34d399;
+}
+
+.status-badge.pending {
+  background: rgba(245, 158, 11, 0.16);
+  color: #fbbf24;
+}
+
+.status-badge.refunded {
+  background: rgba(239, 68, 68, 0.2);
+  color: #f87171;
+}
+
+.conflict-badge {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.conflict-badge.alert {
+  background: rgba(239, 68, 68, 0.22);
+  color: #f87171;
+}
+
+.conflict-badge.ok {
+  background: rgba(16, 185, 129, 0.16);
+  color: #34d399;
+}
+
+/* ==========================================================================
+   Verifier Code Tab
+   ========================================================================== */
+
+.code-header-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: rgba(3, 7, 18, 0.7);
+  color: #94a3b8;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-bottom: none;
+  border-radius: 14px 14px 0 0;
+  font-size: 12px;
+  font-family: monospace;
+}
+
+.copy-code-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 11.5px;
+  padding: 4px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.15s ease;
+}
+
+.copy-code-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+.code-block {
+  margin: 0;
+  padding: 16px;
+  background: rgba(2, 6, 17, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: #e2e8f0;
+  border-radius: 0 0 14px 14px;
+  overflow-x: auto;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   Modal Footer
+   ========================================================================== */
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 28px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(12px);
+}
+
+.footer-hint {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.footer-hint code {
+  background: rgba(56, 189, 248, 0.14);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  padding: 2px 7px;
+  border-radius: 6px;
+  font-family: monospace;
+  font-weight: 600;
+}
+
+.done-btn {
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  padding: 8px 24px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.done-btn:hover {
+  background: #e2e8f0;
+  transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Liquid Mesh Animations
+   ========================================================================== */
+
+@keyframes meshFloat1 {
+  0% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(65px, 45px) scale(1.14); }
+  100% { transform: translate(-45px, 75px) scale(0.96); }
+}
+
+@keyframes meshFloat2 {
+  0% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(-55px, -35px) scale(1.12); }
+  100% { transform: translate(35px, -65px) scale(0.94); }
+}
+
+@keyframes meshFloat3 {
+  0% { transform: translate(0px, 0px) scale(1); }
+  50% { transform: translate(-45px, 55px) scale(1.1); }
+  100% { transform: translate(55px, -35px) scale(1.02); }
+}
+
+@keyframes liquidSheen {
+  0% { transform: translateX(-35%); opacity: 0.6; }
+  100% { transform: translateX(35%); opacity: 1; }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.spin-slow {
+  animation: spin 8s linear infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .cognitive-modal-card {
+    max-height: 96vh;
+    border-radius: 20px;
+  }
+  .modal-header,
+  .modal-title-row,
+  .query-input-box,
+  .modal-tabs,
+  .tab-pane,
+  .modal-footer {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+  .modal-title-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .input-row {
+    flex-direction: column;
+  }
+  .execute-btn {
+    padding: 10px 16px;
+    justify-content: center;
+  }
+}
